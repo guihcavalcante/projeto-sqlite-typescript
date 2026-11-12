@@ -5,3 +5,11 @@ const tabelas = db.prepare(`
   WHERE type = 'table'
 `).all();
 console.log('Tabelas encontradas:', tabelas);
+
+const inserir = db.prepare(
+  'INSERT INTO alunos (nome, email) VALUES (?, ?)'
+);
+
+inserir.run('Carlos Alberto', 'carlos@gmail.com')
+
+inserir.run('Julia Freitas', 'julia@gmail.com')
